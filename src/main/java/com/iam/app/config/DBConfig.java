@@ -4,9 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBConfig {
-    private static final String URL = ENVConfig.get("DB_URL");
-    private static final String USERNAME = ENVConfig.get("DB_USERNAME");
-    private static final String PASSWORD = ENVConfig.get("DB_PASWORD");
+ private static final String URL =
+            System.getenv("DB_URL");
+
+    private static final String USERNAME =
+            System.getenv("DB_USERNAME");
+
+    private static final String PASSWORD =
+            System.getenv("DB_PASSWORD");
 
     public static Connection getConnection() {
         try {
