@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBConfig {
     private static final String URL = ENVConfig.get("DB_URL");
     private static final String USERNAME = ENVConfig.get("DB_USERNAME");
-    private static final String PASSWORD = ENVConfig.get("DB_PASSWORD");
+    private static final String PASSWORD = ENVConfig.get("DB_PASWORD");
 
     public static Connection getConnection() {
         try {
