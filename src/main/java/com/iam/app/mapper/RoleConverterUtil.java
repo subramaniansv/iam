@@ -1,0 +1,18 @@
+package com.iam.app.mapper;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.iam.app.models.*;
+public class RoleConverterUtil {
+    public static Role requestToDto(HttpServletRequest request) {
+    try {
+        ObjectMapper mapper = new ObjectMapper();
+          mapper.registerModule(new JavaTimeModule());
+        return mapper.readValue(request.getInputStream(), Role.class);
+    } catch (Exception e) {
+        throw new RuntimeException("Failed to parse request JSON", e);
+    }
+}
+}
